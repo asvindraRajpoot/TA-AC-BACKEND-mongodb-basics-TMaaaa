@@ -6,6 +6,8 @@ writeCode
 mongoimport --host <host_name> --username <user_name> --password <password> --db
 DB_NAME --collection COLLECTION_NAME --file cities.json(file location) --jsonArray
 (an array of json data)
+
+mongoimport --db test --collection users  --file /Users/asvindrarajpoot/Desktop/AltCampus-Projects/Database/TA-AC-BACKEND-mongodb-basics-TMaaaa/block-BMaaai/generated.json
 ```
 
 host, username and password are optional fields.
