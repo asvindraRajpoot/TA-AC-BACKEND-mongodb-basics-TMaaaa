@@ -7,7 +7,7 @@ mongoimport --host <host_name> --username <user_name> --password <password> --db
 DB_NAME --collection COLLECTION_NAME --file cities.json(file location) --jsonArray
 (an array of json data)
 
-mongoimport --db test --collection users  --file /Users/asvindrarajpoot/Desktop/AltCampus-Projects/Database/TA-AC-BACKEND-mongodb-basics-TMaaaa/block-BMaaai/generated.json
+mongoimport --db test --collection users  --file /Users/asvindrarajpoot/Desktop/AltCampus-Projects/Database/TA-AC-BACKEND-mongodb-basics-TMaaaa/block-BMaaai/generated.json --jsonArray
 ```
 
 host, username and password are optional fields.
@@ -50,7 +50,7 @@ Go to `https://www.json-generator.com/`
 `mongoexport`command.
 
 ```
-mongoexport --db state --collection cities --out ~/Desktop/states/city.json --jsonArray
+mongoexport --db test --collection users --out ~/Desktop/out/exported.json --jsonArray
 ```
 
 ## BLOCK-writeCode
@@ -60,7 +60,7 @@ Export `users` collection from `test` database onto `Desktop` in a file named `e
 #### Import from csv file
 
 ```
-mongoimport -d DB_NAME -c COLLECTION_NAME --type csv --file elections.csv(file location) --headerline(including header)
+mongoimport -d test -c students --type csv --file ~/Downloads/data.csv --headerline
 ```
 
 ## BLOCK-writeCode
