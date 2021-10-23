@@ -33,19 +33,20 @@ Write code to execute below expressions.
 ```
 
 4. Find all the articles using `db.COLLECTION_NAME.find()`
+db.articles.find({})
 5. Find a document using \_id field.
 db.articles.find({"_id" : ObjectId("617410395c2d66c790fa4458")}).pretty()
 6. 1. Find documents using title
 db.articles.find({title:'food'}).pretty()
 7. 2. Find documents using author's name field.
-db.articles.find({author:{name:'tomato',email:'tt@com',age:null}}).pretty()
+db.articles.find({'author.name':'tomato'})
 8. Find document using a specific tag.
  db.articles.find({tags:'red'}).pretty()
 
 9. Update title of a document using its \_id field.
 db.articles.update({"_id" : ObjectId("617410395c2d66c790fa4458")},{$set :{title:'vegitables'}})
 10. Update a author's name using article's title.
-db.articles.update({title:'bank'},{$set :{author:{name:'Sanjay Rajpoot'}}})
+db.articles.update({title:'bank'},{$set :{author.name:'Sanjay Rajpoot'}})
 11. rename details field to description from all articles in articles collection.
 db.articles.updateMany( {}, { $rename: { "details": "description" } } )
 12. Add additional tag in a specific document.
@@ -56,7 +57,7 @@ db.articles.update({title:'vegitables'},{title:'fruits'})
 - Write the differences here ?
 if we use $set then only specific property will change but if do not use $set then whole obj will change and only that specific property will be there which is being updated
 13. find an article using title and increment it's auhtor's age by 5.
-db.articles.update({title:'fruits'},{author:{$set:{age:'4'}}})
+db.articles.update({title:'fruits'},{$inc:{'author.age':5}})
 14. Delete a document using \_id field with `db.COLLECTION_NAME.remove()`.
 db.articles.remove({"_id" : ObjectId("617410395c2d66c790fa4458")})
 
@@ -177,7 +178,7 @@ db.users.insertMany([
 Insert above data into database to perform below queries:-
 
 - Find all males who play cricket.
-db.users.find({sports:'cricket'})
+db.users.find({gender:'Male',sports:'cricket'})
 - Update user with extra golf field in sports array whose name is "Steve Ortega".
 db.users.update({name:"Steve Ortega"},{$push:{sports:'golf'}})
 - Find all users who play either 'football' or 'cricket'.
